@@ -1,4 +1,4 @@
-// Here is an example of how the pseudocode for the algorithm to query the Ethereum blockchain for information about which DeFi products are used by 
+// An example of how the pseudocode for the algorithm to query the Ethereum blockchain for information about which DeFi products are used by 
 // a given Ethereum address could be implemented in the Solidity programming language:
 
 pragma solidity ^0.8.0;
