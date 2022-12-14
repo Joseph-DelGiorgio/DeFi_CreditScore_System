@@ -1,0 +1,85 @@
+//CSS code script that can be used to improve the visual appearance of the user interface for the front-end application:
+
+/* Use the Open Sans font from Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+/* Use the Roboto font from Google Fonts for the buttons */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+/* Use the Material Design Icons font from Google Fonts for the icons */
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Style the main container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+/* Style the heading */
+h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Style the error message */
+.error-message {
+  margin-bottom: 30px;
+  color: #f44336;
+}
+
+/* Style the input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the buttons */
+button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the "Check Credit History" button */
+button.check-credit-history {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Style the "Apply for a Loan" button */
+button.apply-for-loan {
+  background-color: #2196f3;
+  color: #fff;
+}
+
+/* Style the table */
+table {
+  width: 100%;
+  margin-bottom: 30px;
+  border-collapse: collapse;
+}
+
+/* Style the table cells */
+td,
+th {
+  padding: 12px 20px;
+  text-align: left;
+}
+
