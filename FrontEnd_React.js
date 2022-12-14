@@ -63,4 +63,7 @@ function App() {
         repaidLoans = cdps.length;
         totalCollateral = cdps.reduce((total, cdp) => total + cdp.collateral, 0);
       }
-
+    
+  }
+  
+}
