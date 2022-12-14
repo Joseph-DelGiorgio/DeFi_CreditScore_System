@@ -1,0 +1,36 @@
+//Here is an example of how the algorithm could be implemented in pseudocode:
+
+function queryDefiProducts(ethereumAddress) {
+  // Validate the Ethereum address
+  if (!isValidEthereumAddress(ethereumAddress)) {
+    return "Invalid Ethereum address";
+  }
+
+  // Connect to the Ethereum blockchain
+  ethereumClient = connectToEthereum();
+
+  // Query the MakerDAO contract to see if the address has any open CDPs
+  isUsingMakerDAO = ethereumClient.callFunction(
+    "MakerDAO",
+    "openCdp",
+    ethereumAddress
+  );
+
+  // Query the AAVE contract to see if the address has any open loans or deposits
+  userAccount = ethereumClient.callFunction(
+    "AAVE",
+    "getUserAccount",
+    ethereumAddress
+  );
+  isUsingAAVE = (
+    userAccount.principalATokenBalance != 0 ||
+    userAccount.principalBStakedBalance != 0 ||
+    userAccount.borrowBalance != 0
+  );
+
+  // Return the information about which DeFi products the address is using
+  return {
+    isUsingMakerDAO: isUsingMakerDAO,
+    isUsingAAVE: isUsingAAVE
+  };
+}
