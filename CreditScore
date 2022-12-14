@@ -1,0 +1,37 @@
+pragma solidity ^0.8.0;
+
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/token/ERC721/ERC721.sol";
+
+// CreditScore is a smart contract that calculates a credit score for a given Ethereum address
+// and returns the credit score using a soul-bound NFT token standard token.
+
+contract CreditScore {
+  // The ERC721 contract to use for the soul-bound NFT token standard token
+  ERC721 public soulBoundToken;
+
+  // The address of the contract that provides the algorithm for calculating the credit score
+  address public creditScoreAlgorithm;
+
+  // Constructor to initialize the smart contract
+  constructor(ERC721 _soulBoundToken, address _creditScoreAlgorithm) public {
+    soulBoundToken = _soulBoundToken;
+    creditScoreAlgorithm = _creditScoreAlgorithm;
+  }
+
+  // Returns the credit score for the given Ethereum address
+  
+  function getCreditScore(address _ethereumAddress) public view returns (uint256) {
+    // Call the credit score algorithm contract to get the credit score for the given Ethereum address
+    CreditScoreAlgorithm creditScoreAlgorithmContract = CreditScoreAlgorithm(creditScoreAlgorithm);
+    uint256 creditScore = creditScoreAlgorithmContract.getCreditScore(_ethereumAddress);
+
+    // Use the ERC721 contract to create a soul-bound NFT token standard token for the credit score
+    // and transfer it to the given Ethereum address
+    
+    soulBoundToken.mint(creditScore, _ethereumAddress);
+
+    // Return the credit score
+    
+    return creditScore;
+  }
+}
