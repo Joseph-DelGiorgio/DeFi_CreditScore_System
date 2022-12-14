@@ -2,7 +2,6 @@
 // overcollateralized loans on the Ethereum blockchain could be implemented in JavaScript, using the React framework:
 
 
-
 import React, { useState } from "react";
 import web3 from "./web3"; // web3.js library
 import QueryDefiProducts from "./QueryDefiProducts"; // Address of the QueryDefiProducts contract
@@ -17,6 +16,12 @@ function App() {
     isUsingAAVE: false,
     repaidLoans: 0,
     totalCollateral: 0
+  });
+
+  // State variable to store the current interest rates for different DeFi products
+  const [interestRates, setInterestRates] = useState({
+    makerDAO: 0,
+    aave: 0
   });
 
   // State variable to store any error messages
@@ -58,15 +63,4 @@ function App() {
         repaidLoans = cdps.length;
         totalCollateral = cdps.reduce((total, cdp) => total + cdp.collateral, 0);
       }
-      if (queryDefiProducts.isUsingAAVE) {
-        // Query the AAVE contract to get the number of repaid loans and the total collateral
-        // of the user's loans
-        // (Note: this code is simplified and does not include error handling or handling of contract interactions
-        // that require a transaction to be sent to the blockchain)
-        const aTokenAddress = await AAVE.methods.aTokens(0).call();
-        const aTokenContract = new web3.eth.Contract(aTokenAbi, aTokenAddress);
-        const aTokenBalance = await aTokenContract.methods
-          .balanceOf(ethereumAddress)
-          .call();
-        repaidLoans = aTokenBalance.div(1e18).toNumber();
-       }
+
